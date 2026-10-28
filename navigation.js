@@ -21,8 +21,8 @@ document.addEventListener('click', ev => {
     setPlayView(false);
   }
 });
-window.addEventListener('popstate', () => setPlayView(location.hash === '#play'));
-setPlayView(location.hash === '#play');
+window.addEventListener('popstate', () => setPlayView(location.hash.startsWith('#play')));
+setPlayView(location.hash.startsWith('#play'));
 window.goToPlay = function(event) {
   const chosen = event || EVENTS.find(e => e.month === month);
   setPlayView(true);
